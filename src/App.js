@@ -112,14 +112,35 @@ class App extends Component {
       aligment
     });
   }
-  handleSkillChosen = (skillName) => {
-    const {skills, skillsChosen, classChosen} = this.state;
-    const newSkillsChosen = changeSkillsChosen(skillsChosen, skills, skillName);
 
-    this.setState({
-      skillsChosen: newSkillsChosen,
-      skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number
-    });
+  //ORIGINAL CODE FOR handleSkillChosen
+  // handleSkillChosen = (skillName) => {
+  //   const {skills, skillsChosen, classChosen} = this.state;
+  //   const newSkillsChosen = changeSkillsChosen(skillsChosen, skills, skillName);
+  //     this.setState({
+  //       skillsChosen: newSkillsChosen,
+  //       skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number
+  //     });
+  //   }
+
+  handleSkillChosen = (skillName) => {
+    const {skills, skillsChosen, classChosen, race} = this.state;
+    const newSkillsChosen = changeSkillsChosen(skillsChosen, skills, skillName);
+    if (race.name === 'Elf') {
+      this.setState({
+        skillsChosen: newSkillsChosen,
+        skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number + 1
+      });
+      } else {
+        this.setState({
+        skillsChosen: newSkillsChosen,
+            skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number
+      });
+    }
+    console.log(skillsChosen, 'skills chosen')
+    console.log(skills, 'skills')
+    //Must comment out race if using original code
+    console.log(race, 'race')
   }
   render() {
     return (

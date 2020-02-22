@@ -113,13 +113,22 @@ class App extends Component {
     });
   }
   handleSkillChosen = (skillName) => {
-    const {skills, skillsChosen, classChosen} = this.state;
+    const {skills, skillsChosen, classChosen, race} = this.state;
     const newSkillsChosen = changeSkillsChosen(skillsChosen, skills, skillName);
-
-    this.setState({
-      skillsChosen: newSkillsChosen,
-      skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number
-    });
+    if (race.name === 'Elf') {
+      this.setState({
+        skillsChosen: newSkillsChosen,
+        skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number + 1
+      });
+      } else {
+        this.setState({
+        skillsChosen: newSkillsChosen,
+            skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number
+      });
+    }
+    console.log(skillsChosen, 'skills chosen')
+    console.log(skills, 'skills')
+    console.log(race, 'race')
   }
   render() {
     return (

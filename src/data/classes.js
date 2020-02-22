@@ -8,8 +8,13 @@ import {
   LONGSWORD,
   RAPIER,
   SHORTSWORD,
+  DAGGERS,
+  DARTS,
+  SLINGS,
+  QUARTERSTAFFS,
+  LIGHT_CROSSBOW,
 } from './equipament-types';
-import {STR, DEX, CON, CHA} from './abilities';
+import {STR, DEX, CON, CHA, INT, WIS} from './abilities';
 import * as skills from './skills';
 
 export const BARBARIAN = recursiveFreeze({
@@ -66,4 +71,34 @@ export const BARD = recursiveFreeze({
       number: 3
     }
   }
+});
+export const WIZARD = recursiveFreeze({
+  name: 'WIZARD',
+  hitDie: 6,
+  proficiencies: {
+    armor: [],
+    weapons: [
+      DAGGERS,
+      DARTS,
+      SLINGS,
+      QUARTERSTAFFS,
+      LIGHT_CROSSBOW,
+    ],
+    savingThrows: [
+      INT,
+      WIS
+    ],
+      // choices: skills,
+      skills: {
+        choices: [
+          skills.ARCANA,
+          skills.HISTORY,
+          skills.INSIGHT,
+          skills.INVESTIGATION,
+          skills.MEDICINE,
+          skills.RELIGION,
+        ],
+        number: 2
+      }
+    }
 });

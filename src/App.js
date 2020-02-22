@@ -112,6 +112,17 @@ class App extends Component {
       aligment
     });
   }
+
+  //ORIGINAL CODE FOR handleSkillChosen
+  // handleSkillChosen = (skillName) => {
+  //   const {skills, skillsChosen, classChosen} = this.state;
+  //   const newSkillsChosen = changeSkillsChosen(skillsChosen, skills, skillName);
+  //     this.setState({
+  //       skillsChosen: newSkillsChosen,
+  //       skillsFull: newSkillsChosen.length === classChosen.proficiencies.skills.number
+  //     });
+  //   }
+
   handleSkillChosen = (skillName) => {
     const {skills, skillsChosen, classChosen, race} = this.state;
     const newSkillsChosen = changeSkillsChosen(skillsChosen, skills, skillName);
@@ -128,6 +139,7 @@ class App extends Component {
     }
     console.log(skillsChosen, 'skills chosen')
     console.log(skills, 'skills')
+    //Must comment out race if using original code
     console.log(race, 'race')
   }
   render() {

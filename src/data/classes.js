@@ -194,16 +194,16 @@ export const MONK = recursiveFreeze({
       SHORTSWORD
     ],
     savingThrows: [
-      INT,
-      WIS
+      STR,
+      DEX
     ],
     skills: {
       choices: [
-        skills.ARCANA,
+        skills.ACROBATICS,
+        skills.ATHLETICS,
         skills.HISTORY,
         skills.INSIGHT,
-        skills.INVESTIGATION,
-        skills.MEDICINE,
+        skills.STEALTH,
         skills.RELIGION,
       ],
       number: 2
